@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Welcome from "../components/Welcome.astro";
+import Title from "../components/Title.astro";
+---
+
+<Layout
+  title="El manglar de Bagheera - Eventos"
+  description="Excelente restaurante boliche con emocionantes shows en vivo."
+>
+  <main>
+    <Welcome />
+    <section>
+      <Title firstLine="La fiesta de tus sueños" secondLine="Comienza aqui" />
+      <p>
+        Con <strong
+          >deliciosas opciones gastronómicas, tragos vibrantes y entretenimiento
+          de primera,</strong
+        > convertimos tu evento en una experiencia extraordinaria. ¡Tu celebración
+        perfecta comienza aquí!
+      </p>
+    </section>
+  </main>
+</Layout>
+<!-- -->
+<style>
+  section {
+    padding: 4rem 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  p {
+    text-align: center;
+    padding-top: 2rem;
+  }
+</style>
