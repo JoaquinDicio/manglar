@@ -1,36 +1,181 @@
 ---
+import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
-import Welcome from "../components/Welcome.astro";
+import Logo from "../components/Logo.astro";
+import PrimaryBtn from "../components/PrimaryBtn.astro";
+import SectionPrimary from "../components/SectionPrimary.astro";
 import Title from "../components/Title.astro";
+import Slider from "../components/Slider/Slider.jsx";
+import PhotoCard from "../components/PhotoCard.astro";
+import InfoCard from "../components/InfoCard.astro";
 ---
 
 <Layout
-  title="El manglar de Bagheera - Eventos"
-  description="Excelente restaurante boliche con emocionantes shows en vivo."
+  description="Shows en vivo, tragos, amigos y diversion. Manglar de Bagheera."
+  title="Home"
 >
+  <Header pages={["Home", "Nosotros", "Eventos", "Contacto"]} />
   <main>
-    <Welcome />
-    <section>
-      <Title firstLine="La fiesta de tus sueños" secondLine="Comienza aqui" />
-      <p>
-        Con <strong
-          >deliciosas opciones gastronómicas, tragos vibrantes y entretenimiento
-          de primera,</strong
-        > convertimos tu evento en una experiencia extraordinaria. ¡Tu celebración
-        perfecta comienza aquí!
-      </p>
+    <section id="home">
+      <div
+        class="d-flex flex-column justify-content-center align-items-center home-content"
+      >
+        <Logo />
+        <h2>DESCONECTAR, REIR Y PASARLO BIEN</h2>
+        <div class="d-flex flex-column">
+          <PrimaryBtn text="Carta" />
+          <PrimaryBtn text="Eventos" />
+          <PrimaryBtn text="Contacto" />
+        </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          class="bi bi-arrow-down"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1"
+          ></path>
+        </svg>
+      </div>
     </section>
+    <SectionPrimary padding="false">
+      <div class="common-padding">
+        <Title firstLine="bienvenido al" secondLine="manglar de bagheera" />
+        <p>
+          En Bagheera fusionamos la emoción de la música en vivo con la
+          deliciosa oferta gastronómica y la atmósfera animada de nuestro lugar.
+          Somos más que un lugar, somos un escenario de experiencias
+          inolvidables
+        </p>
+      </div>
+      <Slider client:visible />
+      <div class="common-padding">
+        <Title firstLine="difruta de" secondLine="comida, musica y amigos" />
+      </div>
+    </SectionPrimary>
+    <section class="d-flex justify-content-center ph-card-container">
+      <PhotoCard
+        text="Disfruta una gran experiencia gastronomica"
+        textButton="carta"
+      />
+      <PhotoCard
+        text="Festeja tu evento y colecciona recuerdos unicos"
+        textButton="saber mas"
+      />
+      <PhotoCard
+        text="Disfruta la musica con nuestros shows en vivo"
+        textButton="Mas informacion"
+      />
+    </section>
+    <SectionPrimary id="shows" bg="src/assets/shows.jpg" cover={true}>
+      <Title firstLine="experimenta" secondLine="emocionantes shows" />
+      <p>
+        Adéntrate en el excitante mundo de la música, donde la energía
+        contagiosa de los shows en vivo se entrelaza con la alegría de compartir
+        momentos con amigos, deleitar el paladar con deliciosos platillos y
+        brindar con tragos excepcionales.
+      </p>
+      <strong class="cta">Siguenos en Instagram para no perderte ninguno</strong
+      >
+      <img
+        class="social-icon"
+        src="/src/assets/instagram.webp"
+        alt="instagram logo"
+      />
+    </SectionPrimary>
+    <SectionPrimary id="time-location">
+      <InfoCard title="horarios">
+        <div class="card-content d-flex flex-column">
+          <strong>LUN a JUE</strong>
+          <p>12:00 - 01:30</p>
+        </div>
+        <div class="card-content">
+          <strong>VIE a DOM</strong>
+          <p>12:00 - 03:30</p>
+        </div>
+      </InfoCard>
+      <InfoCard title="ubicacion">
+        <div class="card-content d-flex flex-column">
+          <strong>LUN a JUE</strong>
+          <p>12:00 - 01:30</p>
+        </div>
+        <div class="card-content">
+          <strong>VIE a DOM</strong>
+          <p>12:00 - 03:30</p>
+        </div>
+      </InfoCard>
+      <div id="contact">
+        <Title firstLine="si necesitas" secondLine="hablar con nosotros" />
+      </div>
+    </SectionPrimary>
   </main>
+
+  <style>
+    #home {
+      background-image: url("../assets/1.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: #ffff;
+    }
+    h2 {
+      font-weight: 300;
+      font-style: italic;
+      font-size: 1.1rem;
+      text-align: center;
+      margin: 2.5rem 0;
+    }
+    div.home-content {
+      padding: 70px 3rem 0 3rem;
+      min-height: 100vh;
+      background-color: rgba(0, 0, 0, 0.65);
+      padding-bottom: 3rem;
+    }
+    svg {
+      height: 2rem;
+      margin-top: 4rem;
+      animation-name: get-low;
+      animation-duration: 1s;
+      animation-iteration-count: 3;
+    }
+    strong.cta,
+    p {
+      text-align: center;
+      color: #fff;
+      margin: 2rem 0;
+    }
+    div.common-padding {
+      padding: 4rem 2rem 2rem 2rem;
+    }
+    .card-content {
+      padding: 0.5rem;
+      color: #fff;
+      text-align: center;
+    }
+    .card-content p {
+      margin: 0;
+    }
+    .ph-card-container {
+      flex-wrap: wrap;
+    }
+    .social-icon {
+      width: 70px;
+    }
+    #contact {
+      padding: 3rem 0;
+    }
+    @keyframes get-low {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(30px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+  </style>
 </Layout>
-<!-- -->
-<style>
-  section {
-    padding: 4rem 2rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  p {
-    text-align: center;
-    padding-top: 2rem;
-  }
-</style>
