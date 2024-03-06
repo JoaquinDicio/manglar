@@ -2,7 +2,7 @@
 const { firstLine, secondLine } = Astro.props;
 ---
 
-<h2>
+<h2 class="text-white text-center">
   {firstLine}<br />
   <span>{secondLine}</span>
 </h2>
@@ -10,8 +10,6 @@ const { firstLine, secondLine } = Astro.props;
 <style>
   h2 {
     font-size: 1.2rem;
-    text-align: center;
-    color: #fff;
     line-height: 1.4;
     text-transform: uppercase;
   }

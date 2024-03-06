@@ -8,9 +8,9 @@ const {
 ---
 
 <section
-  id=`#${id}`
+  id={id}
   style=`background-image:url("${bg}");`
-  class={cover ? "cover-applied" : ""}
+  class=`${cover ? "cover-applied" : ""} text-white text-center`
 >
   <div
     class=`d-flex flex-column align-items-center ${padding == true ? "padding-applied" : ""}`

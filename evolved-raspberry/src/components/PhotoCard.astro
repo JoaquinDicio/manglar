@@ -1,33 +1,31 @@
 ---
-const { text, textButton, bg } = Astro.props;
+const { text, textButton, bg, href, blank = false } = Astro.props;
 ---
 
 <div class="bg d-flex justify-content-center align-items-center">
   <div class="low-opacity d-flex flex-column align-items-center">
-    <p>{text}</p>
-    <a>{textButton}</a>
+    <p class="text-center text-white">{text}</p>
+    <a class="text-white" target={blank && "_blank"} href={href}>{textButton}</a
+    >
   </div>
 </div>
 
 <style>
   p {
     font-size: 1rem;
-    text-align: center;
     width: 60%;
-    color: #fff;
     font-weight: 400;
   }
   a {
-    color: #ffff;
     padding: 0.5rem 2.5rem;
     margin-top: 1rem;
     border: 1px solid #fff;
     text-transform: uppercase;
+    text-decoration: none;
   }
   a:hover {
     background-color: #fff;
     color: #1d1d1d;
-    font-weight: 600;
     transition: 0.5s;
     cursor: pointer;
   }

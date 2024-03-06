@@ -1,8 +1,5 @@
 ---
-interface Props {
-  pages: string[];
-}
-const { pages }: Props = Astro.props;
+const { pages } = Astro.props;
 ---
 
 <header class="d-flex align-items-center">
@@ -20,8 +17,16 @@ const { pages }: Props = Astro.props;
     ></path>
   </svg>
   <nav id="nav-menu-responsive" class="d-none">
-    <ul>
-      {pages.map((page) => <li>{page}</li>)}
+    <ul class="text-center">
+      {
+        pages.map((page) => (
+          <li>
+            <a class="text-white" href={page.href}>
+              {page.name}
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </nav>
 </header>
@@ -50,10 +55,12 @@ const { pages }: Props = Astro.props;
     display: flex;
     justify-content: space-around;
     list-style: none;
-    text-align: center;
   }
   li {
     cursor: pointer;
+  }
+  a {
+    text-decoration: none;
   }
   svg {
     width: 2rem;
