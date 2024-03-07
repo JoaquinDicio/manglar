@@ -27,15 +27,20 @@ button {
   border: none;
   cursor: pointer;
 }
-button.submit {
+.submit {
   background-color: var(--main-color);
   border-radius: 5px;
   color: #fff;
   margin-top: 1rem;
   padding: 0.5rem;
 }
-button.cancel {
+.cancel {
   background-color: transparent;
   font-weight: 600;
   margin-top: 0.75rem;
+}
+.error {
+  color: red;
+  font-size: 0.6rem;
+  text-align: center;
 }
