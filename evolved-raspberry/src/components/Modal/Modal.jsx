@@ -30,7 +30,7 @@ export default function Modal({ setShowModal }) {
 
   return (
     <div className="modal-container d-flex justify-content-center align-items-center">
-      <form className="d-flex align-items-center flex-column">
+      <form className="d-flex align-items-center flex-column animate__animated animate__fadeInUpBig">
         <p>Completa el formulario</p>
         <input
           type="text"

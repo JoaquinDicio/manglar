@@ -46,7 +46,7 @@ export default function AdminTable() {
       ) : (
         <div className="data-container">
           {leads?.map((lead) => (
-            <TableRow key={lead.id} nombre={lead.nombre} email={lead.email} />
+            <TableRow key={lead.id} {...lead} />
           ))}
         </div>
       )}
